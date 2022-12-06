@@ -5,8 +5,10 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13451086956521738" />
         <entry key="app/src/main/res/layout/dialog_input.xml" value="0.13451086956521738" />
+        <entry key="app/src/main/res/layout/drawier_layout.xml" value="0.13451086956521738" />
         <entry key="app/src/main/res/layout/fragment_page1.xml" value="0.13451086956521738" />
         <entry key="app/src/main/res/layout/rcl_element.xml" value="0.13451086956521738" />
+        <entry key="app/src/main/res/menu/main_drawier.xml" value="0.25104166666666666" />
       </map>
     </option>
   </component>

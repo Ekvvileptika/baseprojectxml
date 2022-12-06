@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/page1Fragment">
+    app:startDestination="@id/menu1">
 
     <fragment
-        android:id="@+id/page1Fragment"
+        android:id="@+id/menu1"
         tools:layout="@layout/fragment_page1"
         android:name="az.ekvileptika.presentation.pagefragment.Page1Fragment"
         android:label="Page1Fragment" />
+
+    <fragment
+        android:id="@+id/menu2"
+        android:name="az.ekvileptika.presentation.anotherpage.AnotherPageFragment"
+        android:label="AnotherPageFragment" />
 </navigation>

@@ -11,6 +11,7 @@ import az.ekvileptika.baseapp.R
 import az.ekvileptika.baseapp.databinding.ActivityMainBinding
 import az.ekvileptika.core.BaseActivity
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,6 +41,8 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(MainViewMo
             .setupWithNavController(navController)
         findViewById<Toolbar>(R.id.toolbar)
             .setupWithNavController(navController, appBarConfiguration)
+        findViewById<BottomNavigationView>(R.id.bottom_nav)
+            .setupWithNavController(navController)
     }
 
 

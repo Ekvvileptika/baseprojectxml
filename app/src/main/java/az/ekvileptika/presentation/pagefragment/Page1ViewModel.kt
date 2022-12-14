@@ -6,6 +6,7 @@ import az.ekvileptika.MainApplication
 import az.ekvileptika.data.characters.CharactersModel
 import az.ekvileptika.domain.CharactersRepository
 import az.ekvileptika.utils.ResponseResources
+import az.ekvileptika.utils.launchIO
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -20,6 +21,7 @@ class Page1ViewModel @Inject constructor(
     private val _characters: MutableStateFlow<List<CharactersModel>?> = MutableStateFlow(listOf())
     val characters = _characters.asStateFlow()
 
+    //method 1
     fun getDataInfo() = viewModelScope.launch{
         val data = repo.getAllCharacters()
 
@@ -37,5 +39,33 @@ class Page1ViewModel @Inject constructor(
 
             }
         }
+    }
+
+    //method 2
+    fun getDataInfoV2(){
+        viewModelScope.launchIO(
+            safeAction = {
+                val data = repo.getAllCharacters()
+
+                when(data){
+                    is ResponseResources.Success -> {
+                        val responseResult = data.data?.results
+                        _characters.value = responseResult
+                    }
+
+                    is ResponseResources.Failure -> {
+
+                    }
+
+                    is ResponseResources.Loading -> {
+
+                    }
+                }
+            },
+            onError = {
+                _characters.value = listOf()
+                it.printStackTrace()
+            }
+        )
     }
 }
